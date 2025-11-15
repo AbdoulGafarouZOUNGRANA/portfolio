@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Abdoul Gafarou ZOUNGRANA | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Portfolio of Abdoul Gafarou ZOUNGRANA – CS Engineering student at EMI, cybersecurity and AI enthusiast, content creator."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-soft: #0b1020;
+      --card: #101629;
+      --accent: #4ade80;
+      --accent-soft: rgba(74, 222, 128, 0.12);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --radius: 18px;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), transparent);
+    }
+
+    .nav {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 12px 16px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 2px solid var(--accent-soft);
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #020617;
+    }
+
+    .nav-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .nav-tag {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      gap: 32px;
+      align-items: center;
+      padding-top: 32px;
+      padding-bottom: 40px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(74, 222, 128, 0.9);
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      line-height: 1.15;
+      margin: 0 0 12px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 55px rgba(22, 163, 74, 0.75);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.85);
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-soft);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero-badge-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .chip {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at top left, #22c55e22, transparent 55%),
+        radial-gradient(circle at bottom, #4ade8022, transparent 60%);
+      border-radius: 30px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-right-title {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      padding: 14px 14px 12px;
+      display: grid;
+      grid-template-columns: 1.2fr 1.1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-card h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+    }
+
+    .hero-card p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+    }
+
+    .metric-value {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 3px 7px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 40px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: rgba(11, 15, 32, 0.92);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 14px 14px 12px;
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.6);
+      font-size: 13px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .card p {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .project-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .contact-item span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .contact-item a {
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 14px;
+      }
+
+      .hero h1 {
+        font-size: 26px;
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="avatar">A</div>
+        <div>
+          <div class="nav-name">Abdoul Gafarou</div>
+          <div class="nav-tag">Cybersecurity & AI • EMI</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <div class="badge">
+          <div class="badge-dot"></div>
+          <span>CS Engineering Student · EMI</span>
+        </div>
+        <h1>
+          Hi, I'm <span>Abdoul</span> — I like building and breaking things in tech.
+        </h1>
+        <p class="hero-subtitle">
+          Computer Science Engineering student at École Mohammadia d’Ingénieurs (EMI),
+          interested in cybersecurity, AI, and how systems behave in the real world.
+        </p>
+
+        <div class="hero-actions">
+          <a
+            class="btn btn-primary"
+            href="https://github.com/AbdoulGafarouZOUNGRANA"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View my GitHub
+          </a>
+          <a
+            class="btn btn-ghost"
+            href="https://www.linkedin.com/in/abdoul-gafarou-zoungrana-486280323"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn profile
+          </a>
+        </div>
+
+        <div class="hero-badge-row">
+          <div class="chip">IT Academy · Competition Cell</div>
+          <div class="chip">TikTok · 30K+ followers</div>
+          <div class="chip">Cybersecurity & AI path</div>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="hero-right-title">Quick snapshot</div>
+        <div class="hero-card">
+          <div>
+            <h3>What I'm doing now</h3>
+            <p>
+              Studying CS at EMI, learning cybersecurity basics, building small
+              projects around Cloudflare, automation and translation tools.
+            </p>
+          </div>
+          <div class="metrics">
+            <div>
+              <div class="metric-label">GitHub</div>
+              <div class="metric-value">Learning in public</div>
+            </div>
+            <div>
+              <div class="metric-label">Focus</div>
+              <div class="metric-value">Cybersecurity & AI</div>
+            </div>
+            <div>
+              <div class="metric-label">Content</div>
+              <div class="metric-value">30K+ TikTok</div>
+            </div>
+          </div>
+        </div>
+        <div class="pill-row">
+          <div class="pill">Kali · Ubuntu</div>
+          <div class="pill">TryHackMe</div>
+          <div class="pill">Cloudflare Workers</div>
+          <div class="pill">Adobe Premiere Pro</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT & SKILLS -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <p class="section-sub">
+        A mix of cybersecurity, AI curiosity and content creation.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Who I am</h3>
+          <p>
+            I'm a CS engineering student at <strong>École Mohammadia
+            d’Ingénieurs (EMI)</strong>. I like understanding how systems are built,
+            where they fail, and how to make them safer.
+          </p>
+          <p>
+            I spend time learning cybersecurity concepts, playing with tools,
+            and trying to turn what I learn into small, concrete projects.
+          </p>
+        </div>
+        <div class="card" id="skills">
+          <h3>Skills (so far)</h3>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML & CSS</span>
+            <span class="tag">C</span>
+            <span class="tag">Linux</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Cloudflare</span>
+            <span class="tag">Odoo ERP</span>
+            <span class="tag">HubSpot</span>
+            <span class="tag">Adobe Premiere Pro</span>
+            <span class="tag">Canva</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">
+        A few things I've worked on or I'm still improving.
+      </p>
+
+      <div class="projects">
+        <div class="card">
+          <div class="project-title">
+            Real Estate Agency Management System
+          </div>
+          <p>
+            Team project built with <strong>Odoo ERP</strong>, HubSpot and AppliCO
+            for managing real estate listings, clients and workflows.
+          </p>
+          <p>
+            I worked on module customization, database setup and automation
+            logic.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Odoo</span>
+            <span class="tag">ERP</span>
+            <span class="tag">HubSpot</span>
+            <span class="tag">Team work</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="project-title">
+            WhatsApp Real-Time Translation Extension
+          </div>
+          <p>
+            Cloudflare Worker + AI API that translates WhatsApp messages
+            from Algerian Arabic to French and English in real time.
+          </p>
+          <p>
+            Still improving the architecture and UX before publishing it
+            properly.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Cloudflare Workers</span>
+            <span class="tag">APIs</span>
+            <span class="tag">AI</span>
+            <span class="tag">Automation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="project-title">Cybersecurity Labs & Challenges</div>
+          <p>
+            Hands-on practice on <strong>TryHackMe</strong> and resources from
+            Cisco Networking Academy: Linux, networking basics and intro to
+            ethical hacking.
+          </p>
+          <div class="tag-row">
+            <span class="tag">TryHackMe</span>
+            <span class="tag">Kali</span>
+            <span class="tag">Networking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT CREATION / TIKTOK -->
+    <section>
+      <h2 class="section-title">Content & Side Projects</h2>
+      <p class="section-sub">
+        I like tech, but I also enjoy editing and storytelling.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>TikTok · 30K+ followers</h3>
+          <p>
+            I run a TikTok account focused on football and sports edits.
+            It's where I experiment with timing, visuals and audience
+            growth.
+          </p>
+          <p>
+            It also helps me stay consistent: create, test, iterate.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Adobe Premiere Pro</span>
+            <span class="tag">Canva</span>
+            <span class="tag">Storytelling</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>What I'm looking for</h3>
+          <p>
+            Opportunities to learn more in cybersecurity, work on real
+            problems, and collaborate with people who enjoy building things
+            from scratch.
+          </p>
+          <p>
+            If you have a project, idea or advice, feel free to reach out.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">
+        The easiest way to reach me is by email or LinkedIn.
+      </p>
+      <div class="card contact-card">
+        <div class="contact-item">
+          <span>Email</span><br />
+          <a href="mailto:abdoulgafarouzoungrana6@gmail.com">
+            abdoulgafarouzoungrana6@gmail.com
+          </a>
+        </div>
+        <div class="contact-item">
+          <span>LinkedIn</span><br />
+          <a
+            href="https://www.linkedin.com/in/abdoul-gafarou-zoungrana-486280323"
+            target="_blank"
+            rel="noreferrer"
+            >View my LinkedIn profile</a
+          >
+        </div>
+        <div class="contact-item">
+          <span>GitHub</span><br />
+          <a
+            href="https://github.com/AbdoulGafarouZOUNGRANA"
+            target="_blank"
+            rel="noreferrer"
+            >github.com/AbdoulGafarouZOUNGRANA</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Built with simple HTML & CSS · Hosted on GitHub Pages ·
+      <a href="#top">Back to top</a>
+    </footer>
+  </main>
+</body>
+</html>
