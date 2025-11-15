@@ -16,16 +16,18 @@
   />
   <style>
     :root {
-      --bg: #f3f4f6;
-      --bg-soft: #ffffff;
-      --accent: #2563eb;
-      --accent-soft: rgba(37, 99, 235, 0.08);
-      --accent-strong: #1d4ed8;
-      --text: #111827;
-      --muted: #6b7280;
-      --border: #e5e7eb;
+      --bg: #020617;
+      --bg-soft: rgba(15, 23, 42, 0.9);
+      --bg-soft-strong: #020617;
+      --accent: #6366f1;
+      --accent-strong: #4f46e5;
+      --accent-soft: rgba(99, 102, 241, 0.15);
+      --accent-soft-2: rgba(56, 189, 248, 0.2);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(148, 163, 184, 0.3);
       --radius: 18px;
-      --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.9);
     }
 
     * {
@@ -37,7 +39,10 @@
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #e5edff 0, #f9fafb 40%, #f3f4f6 100%);
+      background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 55%),
+        radial-gradient(circle at bottom, rgba(129, 140, 248, 0.13), transparent 55%),
+        #020617;
       color: var(--text);
     }
 
@@ -47,9 +52,9 @@
     }
 
     .page {
-      max-width: 1040px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 20px 16px 56px;
+      padding: 20px 16px 64px;
     }
 
     /* Header / nav */
@@ -57,16 +62,16 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(249, 250, 251, 0.95), transparent);
-      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), transparent);
+      border-bottom: 1px solid rgba(30, 64, 175, 0.35);
     }
 
     .nav {
-      max-width: 1040px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 10px 16px 8px;
+      padding: 12px 16px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -79,6 +84,35 @@
       gap: 10px;
     }
 
+    .nav-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      padding: 2px;
+      background: conic-gradient(
+        from 180deg,
+        #6366f1,
+        #22c55e,
+        #06b6d4,
+        #6366f1
+      );
+    }
+
+    .nav-avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .nav-avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .nav-name {
       font-weight: 600;
       font-size: 15px;
@@ -89,9 +123,15 @@
       color: var(--muted);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     .nav-links {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       font-size: 14px;
       color: var(--muted);
     }
@@ -108,8 +148,8 @@
       bottom: 0;
       width: 0;
       height: 2px;
-      background: var(--accent);
-      transition: width 0.18s ease;
+      background: linear-gradient(90deg, #36c9f3, #6366f1);
+      transition: width 0.2s ease;
     }
 
     .nav-links a:hover {
@@ -123,59 +163,62 @@
     .lang-switch {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       font-size: 12px;
-      background: #e5edff;
+      background: rgba(15, 23, 42, 0.9);
       border-radius: 999px;
-      padding: 4px 6px;
-      border: 1px solid #d4dcff;
+      padding: 3px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
     }
 
     .lang-btn {
       border: none;
       background: transparent;
       font-size: 11px;
-      padding: 3px 8px;
+      padding: 4px 9px;
       border-radius: 999px;
       cursor: pointer;
       color: var(--muted);
+      transition: all 0.15s ease;
     }
 
     .lang-btn.active {
-      background: var(--accent);
-      color: #ffffff;
+      background: linear-gradient(135deg, #36c9f3, #6366f1);
+      color: #0b1120;
       font-weight: 600;
+      box-shadow: 0 0 10px rgba(129, 140, 248, 0.7);
     }
 
     /* Hero */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.3fr);
+      grid-template-columns: minmax(0, 1.9fr) minmax(0, 1.3fr);
       gap: 32px;
       align-items: center;
-      padding-top: 32px;
+      padding-top: 36px;
+      padding-bottom: 30px;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid #d1ddff;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(129, 140, 248, 0.6);
       font-size: 11px;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero-badge-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 10px rgba(37, 99, 235, 0.9);
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
     }
 
     .hero h1 {
@@ -185,14 +228,16 @@
     }
 
     .hero h1 span {
-      color: var(--accent-strong);
+      background: linear-gradient(120deg, #36c9f3, #6366f1);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .hero-subtitle {
       font-size: 14px;
       color: var(--muted);
       max-width: 520px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
     .hero-subtitle-fr {
@@ -206,7 +251,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .btn {
@@ -222,25 +267,25 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #ffffff;
+      background: linear-gradient(135deg, #36c9f3, #6366f1);
+      color: #0b1120;
       font-weight: 600;
       box-shadow: var(--shadow-soft);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 18px 46px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 22px 58px rgba(37, 99, 235, 0.8);
     }
 
     .btn-ghost {
-      background: #ffffff;
-      border-color: var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(75, 85, 99, 0.9);
       color: var(--muted);
     }
 
     .btn-ghost:hover {
-      border-color: #cbd5f5;
+      border-color: rgba(129, 140, 248, 0.8);
       color: var(--text);
       transform: translateY(-1px);
     }
@@ -256,8 +301,8 @@
     .chip {
       padding: 5px 9px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: radial-gradient(circle at top left, rgba(129, 140, 248, 0.45), rgba(15, 23, 42, 0.95));
     }
 
     .hero-right {
@@ -266,12 +311,30 @@
     }
 
     .profile-card {
-      background: var(--bg-soft);
+      background: radial-gradient(circle at top, rgba(37, 99, 235, 0.42), rgba(15, 23, 42, 0.98));
       border-radius: 26px;
-      padding: 18px 18px 16px;
+      padding: 20px 18px 16px;
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(209, 213, 219, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.7);
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.35), transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(129, 140, 248, 0.35), transparent 55%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .profile-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .profile-img-wrapper {
@@ -281,12 +344,13 @@
       margin: 0 auto 12px;
       padding: 4px;
       background: conic-gradient(
-        from 180deg,
-        #2563eb,
+        from 200deg,
+        #36c9f3,
+        #6366f1,
         #22c55e,
-        #f97316,
-        #2563eb
+        #6366f1
       );
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.75);
     }
 
     .profile-img-inner {
@@ -294,7 +358,8 @@
       height: 100%;
       border-radius: 999px;
       overflow: hidden;
-      background: #e5e7eb;
+      background: #020617;
+      border: 1px solid rgba(15, 23, 42, 0.9);
     }
 
     .profile-img-inner img {
@@ -331,7 +396,7 @@
 
     .section-title {
       font-size: 20px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .section-sub {
@@ -343,15 +408,15 @@
     .card-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
 
     .card {
-      background: var(--bg-soft);
+      background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.4), rgba(15, 23, 42, 0.98));
       border-radius: var(--radius);
       border: 1px solid var(--border);
       padding: 14px 14px 12px;
-      box-shadow: 0 12px 30px rgba(148, 163, 184, 0.2);
+      box-shadow: 0 16px 44px rgba(15, 23, 42, 0.9);
       font-size: 13px;
     }
 
@@ -382,16 +447,22 @@
     .tag {
       padding: 3px 8px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #f9fafb;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.9);
       font-size: 11px;
       color: var(--muted);
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .project-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
     }
 
     .contact-list {
@@ -407,16 +478,20 @@
     }
 
     .contact-item a {
-      color: var(--accent-strong);
+      color: #38bdf8;
     }
 
     footer {
-      margin-top: 36px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
+      margin-top: 40px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
       font-size: 11px;
       color: var(--muted);
       text-align: center;
+    }
+
+    footer a {
+      color: #38bdf8;
     }
 
     /* Lang handling */
@@ -439,6 +514,26 @@
 
     .lang-fr-block {
       display: none;
+    }
+
+    /* Animations */
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero,
+    .card,
+    .projects-grid > .card,
+    .profile-card {
+      animation: fadeInUp 0.5s ease forwards;
     }
 
     /* Responsive */
@@ -472,13 +567,21 @@
   <header>
     <nav class="nav">
       <div class="nav-left">
+        <div class="nav-avatar">
+          <div class="nav-avatar-inner">
+            <img
+              src="WhatsApp Image 2025-11-15 at 13.25.38_0830f175.jpg"
+              alt="Profile picture of Abdoul"
+            />
+          </div>
+        </div>
         <div>
           <div class="nav-name">Abdoul Gafarou ZOUNGRANA</div>
           <div class="nav-tag lang-en">CS Engineering Student · EMI</div>
           <div class="nav-tag lang-fr">Élève ingénieur en informatique · EMI</div>
         </div>
       </div>
-      <div style="display:flex; align-items:center; gap:10px;">
+      <div class="nav-right">
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
@@ -504,7 +607,7 @@
         </div>
 
         <h1>
-          <span>Abdoul Gafarou </span>, curious about security, systems and how things work.
+          <span>Abdoul Gafarou</span>, curious about security, systems and how things work.
         </h1>
 
         <p class="hero-subtitle lang-en">
@@ -547,23 +650,25 @@
 
       <aside class="hero-right">
         <div class="profile-card">
-          <div class="profile-img-wrapper">
-            <div class="profile-img-inner">
-              <img
-                src="WhatsApp Image 2025-11-15 at 13.25.38_0830f175.jpg"
-                alt="Profile picture of Abdoul Gafarou ZOUNGRANA"
-              />
+          <div class="profile-inner">
+            <div class="profile-img-wrapper">
+              <div class="profile-img-inner">
+                <img
+                  src="WhatsApp Image 2025-11-15 at 13.25.38_0830f175.jpg"
+                  alt="Profile picture of Abdoul Gafarou ZOUNGRANA"
+                />
+              </div>
             </div>
-          </div>
-          <div class="profile-name">Abdoul Gafarou ZOUNGRANA</div>
-          <div class="profile-role lang-en">
-            CS Engineering Student · Future Cybersecurity Engineer
-          </div>
-          <div class="profile-role lang-fr">
-            Élève ingénieur · Futur ingénieur en cybersécurité
-          </div>
-          <div class="profile-row">
-            <span>EMI, Rabat</span>
+            <div class="profile-name">Abdoul Gafarou ZOUNGRANA</div>
+            <div class="profile-role lang-en">
+              CS Engineering Student · Future Cybersecurity Engineer
+            </div>
+            <div class="profile-role lang-fr">
+              Élève ingénieur · Futur ingénieur en cybersécurité
+            </div>
+            <div class="profile-row">
+              <span>EMI, Rabat</span>
+            </div>
           </div>
         </div>
       </aside>
@@ -704,11 +809,11 @@
         <div class="card">
           <div class="project-title"><strong>Real Estate Agency Management System</strong></div>
           <p class="lang-en">
-            Team project built with <strong>Odoo </strong>, HubSpot and AppliCEO
+            Team project built with <strong>Odoo</strong>, HubSpot and AppliCEO
             for managing properties, clients and workflows for a real estate agency.
           </p>
           <p class="lang-fr-block">
-            Projet d’équipe réalisé avec <strong>Odoo </strong>, HubSpot et AppliCEO
+            Projet d’équipe réalisé avec <strong>Odoo</strong>, HubSpot et AppliCEO
             pour gérer les biens, les clients, les contrats et les flux de travail d’une agence immobilière.
           </p>
           <p class="lang-en">
@@ -730,11 +835,11 @@
           <div class="project-title"><strong>WhatsApp Real-Time Translation Extension</strong></div>
           <p class="lang-en">
             Cloudflare Worker + AI API that translates WhatsApp messages from
-            DARIJA to FRENCH , in near real time.
+            DARIJA to FRENCH, in near real time.
           </p>
           <p class="lang-fr-block">
             Projet basé sur un Cloudflare Worker et une API d’IA pour traduire
-            des messages WhatsApp dU DARIJA MAROCAIN vers le FRANCAIS, quasiment
+            des messages WhatsApp du DARIJA MAROCAIN vers le FRANÇAIS, quasiment
             en temps réel.
           </p>
           <p class="lang-en">
