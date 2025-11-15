@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Portfolio of Abdoul Gafarou ZOUNGRANA – CS Engineering student at EMI, cybersecurity and AI enthusiast, content creator."
+    content="Portfolio of Abdoul Gafarou ZOUNGRANA – CS Engineering student at EMI, interested in Cybersecurity, AI and content creation."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,16 +16,16 @@
   />
   <style>
     :root {
-      --bg: #050816;
-      --bg-soft: #0b1020;
-      --card: #101629;
-      --accent: #4ade80;
-      --accent-soft: rgba(74, 222, 128, 0.12);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2933;
+      --bg: #f3f4f6;
+      --bg-soft: #ffffff;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --accent-strong: #1d4ed8;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
       --radius: 18px;
-      --shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+      --shadow-soft: 0 16px 40px rgba(15, 23, 42, 0.12);
     }
 
     * {
@@ -37,7 +37,7 @@
       margin: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      background: radial-gradient(circle at top, #e5edff 0, #f9fafb 40%, #f3f4f6 100%);
       color: var(--text);
     }
 
@@ -49,45 +49,34 @@
     .page {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 24px 16px 64px;
+      padding: 20px 16px 56px;
     }
 
-    /* Navbar */
+    /* Header / nav */
+
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), transparent);
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(249, 250, 251, 0.95), transparent);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
     }
 
     .nav {
       max-width: 1040px;
       margin: 0 auto;
-      padding: 12px 16px 6px;
+      padding: 10px 16px 8px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
     .nav-left {
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-
-    .avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      border: 2px solid var(--accent-soft);
-      background: linear-gradient(135deg, #4ade80, #22c55e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 18px;
-      color: #020617;
     }
 
     .nav-name {
@@ -102,14 +91,14 @@
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       font-size: 14px;
       color: var(--muted);
     }
 
     .nav-links a {
       position: relative;
-      padding-bottom: 3px;
+      padding-bottom: 2px;
     }
 
     .nav-links a::after {
@@ -120,7 +109,7 @@
       width: 0;
       height: 2px;
       background: var(--accent);
-      transition: width 0.2s ease;
+      transition: width 0.18s ease;
     }
 
     .nav-links a:hover {
@@ -131,58 +120,93 @@
       width: 100%;
     }
 
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      background: #e5edff;
+      border-radius: 999px;
+      padding: 4px 6px;
+      border: 1px solid #d4dcff;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
     /* Hero */
+
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.3fr);
       gap: 32px;
       align-items: center;
       padding-top: 32px;
-      padding-bottom: 40px;
     }
 
-    .badge {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 9px;
+      padding: 4px 10px;
       border-radius: 999px;
       background: var(--accent-soft);
-      border: 1px solid rgba(74, 222, 128, 0.25);
+      border: 1px solid #d1ddff;
       font-size: 11px;
       color: var(--muted);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
-    .badge-dot {
+    .hero-badge-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
       background: var(--accent);
-      box-shadow: 0 0 12px rgba(74, 222, 128, 0.9);
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.9);
     }
 
     .hero h1 {
       font-size: 32px;
-      line-height: 1.15;
-      margin: 0 0 12px;
+      line-height: 1.2;
+      margin: 0 0 10px;
     }
 
     .hero h1 span {
-      color: var(--accent);
+      color: var(--accent-strong);
     }
 
     .hero-subtitle {
       font-size: 14px;
       color: var(--muted);
-      max-width: 480px;
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle-fr {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 18px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-bottom: 16px;
     }
 
     .btn {
@@ -198,31 +222,30 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #4ade80, #22c55e);
-      color: #020617;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #ffffff;
       font-weight: 600;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-soft);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 22px 55px rgba(22, 163, 74, 0.75);
+      box-shadow: 0 18px 46px rgba(37, 99, 235, 0.35);
     }
 
     .btn-ghost {
-      background: rgba(15, 23, 42, 0.85);
+      background: #ffffff;
       border-color: var(--border);
       color: var(--muted);
     }
 
     .btn-ghost:hover {
-      border-color: var(--accent-soft);
+      border-color: #cbd5f5;
       color: var(--text);
       transform: translateY(-1px);
     }
 
-    .hero-badge-row {
-      margin-top: 18px;
+    .hero-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -231,77 +254,72 @@
     }
 
     .chip {
-      padding: 4px 8px;
+      padding: 5px 9px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     .hero-right {
-      background: radial-gradient(circle at top left, #22c55e22, transparent 55%),
-        radial-gradient(circle at bottom, #4ade8022, transparent 60%);
-      border-radius: 30px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      padding: 18px 18px 20px;
-      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: center;
     }
 
-    .hero-right-title {
+    .profile-card {
+      background: var(--bg-soft);
+      border-radius: 26px;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(209, 213, 219, 0.85);
+      text-align: center;
+    }
+
+    .profile-img-wrapper {
+      width: 150px;
+      height: 150px;
+      border-radius: 999px;
+      margin: 0 auto 12px;
+      padding: 4px;
+      background: conic-gradient(
+        from 180deg,
+        #2563eb,
+        #22c55e,
+        #f97316,
+        #2563eb
+      );
+    }
+
+    .profile-img-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #e5e7eb;
+    }
+
+    .profile-img-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-name {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .profile-role {
       font-size: 13px;
       color: var(--muted);
       margin-bottom: 10px;
     }
 
-    .hero-card {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      padding: 14px 14px 12px;
-      display: grid;
-      grid-template-columns: 1.2fr 1.1fr;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .hero-card h3 {
-      margin: 0 0 4px;
-      font-size: 15px;
-    }
-
-    .hero-card p {
-      margin: 0;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .metrics {
+    .profile-row {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
+      justify-content: center;
+      gap: 10px;
       font-size: 11px;
-    }
-
-    .metric-label {
-      color: var(--muted);
-    }
-
-    .metric-value {
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 8px;
-    }
-
-    .pill {
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      padding: 3px 7px;
-      font-size: 10px;
       color: var(--muted);
     }
 
@@ -312,71 +330,71 @@
     }
 
     .section-title {
-      font-size: 18px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin-bottom: 6px;
     }
 
     .section-sub {
       font-size: 13px;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    .grid-2 {
+    .card-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
     .card {
-      background: rgba(11, 15, 32, 0.92);
+      background: var(--bg-soft);
       border-radius: var(--radius);
       border: 1px solid var(--border);
       padding: 14px 14px 12px;
-      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.6);
+      box-shadow: 0 12px 30px rgba(148, 163, 184, 0.2);
       font-size: 13px;
     }
 
     .card h3 {
       margin: 0 0 6px;
-      font-size: 14px;
+      font-size: 15px;
     }
 
     .card p {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: var(--muted);
+      font-size: 13px;
+    }
+
+    .small-muted {
       font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
     }
 
     .tag-row {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .tag {
-      padding: 3px 7px;
+      padding: 3px 8px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
       border: 1px solid var(--border);
+      background: #f9fafb;
       font-size: 11px;
       color: var(--muted);
     }
 
-    .projects {
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
     }
 
-    .project-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-size: 14px;
-    }
-
-    .contact-card {
+    .contact-list {
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -384,21 +402,43 @@
     }
 
     .contact-item span {
-      color: var(--muted);
       font-size: 12px;
+      color: var(--muted);
     }
 
     .contact-item a {
-      color: var(--accent);
+      color: var(--accent-strong);
     }
 
     footer {
-      margin-top: 40px;
-      padding-top: 18px;
+      margin-top: 36px;
+      padding-top: 14px;
       border-top: 1px solid var(--border);
       font-size: 11px;
       color: var(--muted);
       text-align: center;
+    }
+
+    /* Lang handling */
+
+    .lang-fr {
+      display: none;
+    }
+
+    body[data-lang="fr"] .lang-en {
+      display: none;
+    }
+
+    body[data-lang="fr"] .lang-fr {
+      display: inline;
+    }
+
+    body[data-lang="fr"] .lang-fr-block {
+      display: block;
+    }
+
+    .lang-fr-block {
+      display: none;
     }
 
     /* Responsive */
@@ -407,46 +447,48 @@
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
-
       .hero-right {
         order: -1;
       }
-
       .nav-links {
         display: none;
+      }
+      .page {
+        padding-inline: 14px;
       }
     }
 
     @media (max-width: 640px) {
-      .page {
-        padding-inline: 14px;
-      }
-
       .hero h1 {
         font-size: 26px;
       }
-
-      .grid-2 {
+      .card-grid-2 {
         grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
 </head>
-<body>
+<body data-lang="en">
   <header>
     <nav class="nav">
       <div class="nav-left">
-        <div class="avatar">A</div>
         <div>
-          <div class="nav-name">Abdoul Gafarou</div>
-          <div class="nav-tag">Cybersecurity & AI • EMI</div>
+          <div class="nav-name">Abdoul Gafarou ZOUNGRANA</div>
+          <div class="nav-tag lang-en">CS Engineering Student · EMI</div>
+          <div class="nav-tag lang-fr">Élève ingénieur en informatique · EMI</div>
         </div>
       </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang-btn="en">EN</button>
+          <button class="lang-btn" data-lang-btn="fr">FR</button>
+        </div>
       </div>
     </nav>
   </header>
@@ -455,16 +497,23 @@
     <!-- HERO -->
     <section class="hero" id="top">
       <div>
-        <div class="badge">
-          <div class="badge-dot"></div>
-          <span>CS Engineering Student · EMI</span>
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span class="lang-en">Cybersecurity & AI enthusiast · IT Academy member</span>
+          <span class="lang-fr">Passionné de cybersécurité & IA · Membre d'IT Academy</span>
         </div>
+
         <h1>
-          Hi, I'm <span>Abdoul</span> — I like building and breaking things in tech.
+          <span>Abdoul</span> — curious about security, systems and how things work.
         </h1>
-        <p class="hero-subtitle">
-          Computer Science Engineering student at École Mohammadia d’Ingénieurs (EMI),
-          interested in cybersecurity, AI, and how systems behave in the real world.
+
+        <p class="hero-subtitle lang-en">
+          I'm a Computer Science Engineering student at École Mohammadia d’Ingénieurs (EMI).
+          I enjoy exploring cybersecurity, AI and building small projects that connect both.
+        </p>
+        <p class="hero-subtitle-fr lang-fr-block">
+          Je suis élève ingénieur en informatique à l’École Mohammadia d’Ingénieurs (EMI).
+          J’aime comprendre la cybersécurité, l’IA et créer de petits projets concrets autour de ça.
         </p>
 
         <div class="hero-actions">
@@ -482,11 +531,14 @@
             target="_blank"
             rel="noreferrer"
           >
-            LinkedIn profile
+            LinkedIn
+          </a>
+          <a class="btn btn-ghost" href="#contact">
+            Contact
           </a>
         </div>
 
-        <div class="hero-badge-row">
+        <div class="hero-chips">
           <div class="chip">IT Academy · Competition Cell</div>
           <div class="chip">TikTok · 30K+ followers</div>
           <div class="chip">Cybersecurity & AI path</div>
@@ -494,65 +546,78 @@
       </div>
 
       <aside class="hero-right">
-        <div class="hero-right-title">Quick snapshot</div>
-        <div class="hero-card">
-          <div>
-            <h3>What I'm doing now</h3>
-            <p>
-              Studying CS at EMI, learning cybersecurity basics, building small
-              projects around Cloudflare, automation and translation tools.
-            </p>
-          </div>
-          <div class="metrics">
-            <div>
-              <div class="metric-label">GitHub</div>
-              <div class="metric-value">Learning in public</div>
-            </div>
-            <div>
-              <div class="metric-label">Focus</div>
-              <div class="metric-value">Cybersecurity & AI</div>
-            </div>
-            <div>
-              <div class="metric-label">Content</div>
-              <div class="metric-value">30K+ TikTok</div>
+        <div class="profile-card">
+          <div class="profile-img-wrapper">
+            <div class="profile-img-inner">
+              <img
+                src="WhatsApp Image 2025-11-15 at 13.25.38_0830f175.jpg"
+                alt="Profile picture of Abdoul Gafarou ZOUNGRANA"
+              />
             </div>
           </div>
-        </div>
-        <div class="pill-row">
-          <div class="pill">Kali · Ubuntu</div>
-          <div class="pill">TryHackMe</div>
-          <div class="pill">Cloudflare Workers</div>
-          <div class="pill">Adobe Premiere Pro</div>
+          <div class="profile-name">Abdoul Gafarou Z.</div>
+          <div class="profile-role lang-en">
+            CS Engineering Student · Future Cybersecurity Engineer
+          </div>
+          <div class="profile-role lang-fr">
+            Élève ingénieur · Futur ingénieur en cybersécurité
+          </div>
+          <div class="profile-row">
+            <span>EMI, Rabat</span>
+          </div>
         </div>
       </aside>
     </section>
 
-    <!-- ABOUT & SKILLS -->
+    <!-- ABOUT / SKILLS -->
     <section id="about">
-      <h2 class="section-title">About</h2>
-      <p class="section-sub">
+      <h2 class="section-title lang-en">About</h2>
+      <h2 class="section-title lang-fr">À propos</h2>
+      <p class="section-sub lang-en">
         A mix of cybersecurity, AI curiosity and content creation.
       </p>
-      <div class="grid-2">
+      <p class="section-sub lang-fr">
+        Un mélange de cybersécurité, de curiosité pour l’IA et de création de contenu.
+      </p>
+
+      <div class="card-grid-2">
         <div class="card">
-          <h3>Who I am</h3>
-          <p>
-            I'm a CS engineering student at <strong>École Mohammadia
-            d’Ingénieurs (EMI)</strong>. I like understanding how systems are built,
-            where they fail, and how to make them safer.
+          <h3 class="lang-en">Who I am</h3>
+          <h3 class="lang-fr">Qui je suis</h3>
+          <p class="lang-en">
+            I study Computer Science Engineering at <strong>École Mohammadia d’Ingénieurs (EMI)</strong>.
+            I like understanding how systems are built, where they break, and how to make them safer.
           </p>
-          <p>
-            I spend time learning cybersecurity concepts, playing with tools,
-            and trying to turn what I learn into small, concrete projects.
+          <p class="lang-fr-block">
+            Je suis élève ingénieur en informatique à
+            <strong>l’École Mohammadia d’Ingénieurs (EMI)</strong>.
+            J’aime comprendre comment les systèmes sont construits, où ils cassent
+            et comment les sécuriser.
+          </p>
+          <p class="lang-en">
+            I'm part of <strong>IT Academy</strong> in the competition cell, where I learn with people
+            who enjoy solving technical challenges in cybersecurity and AI.
+          </p>
+          <p class="lang-fr-block">
+            Je fais partie d’<strong>IT Academy</strong> dans la cellule compétition,
+            où je progresse avec des étudiants passionnés par les défis en cybersécurité et en IA.
           </p>
         </div>
+
         <div class="card" id="skills">
-          <h3>Skills (so far)</h3>
+          <h3 class="lang-en">Skills (so far)</h3>
+          <h3 class="lang-fr">Compétences actuelles</h3>
+          <p class="lang-en">
+            I’m still learning, but these are the tools and languages I’m comfortable with.
+          </p>
+          <p class="lang-fr-block">
+            Je suis encore en apprentissage, mais voici les langages et outils avec lesquels je suis à l’aise.
+          </p>
           <div class="tag-row">
             <span class="tag">Python</span>
             <span class="tag">Java</span>
             <span class="tag">JavaScript</span>
-            <span class="tag">HTML & CSS</span>
+            <span class="tag">HTML &amp; CSS</span>
             <span class="tag">C</span>
             <span class="tag">Linux</span>
             <span class="tag">GitHub</span>
@@ -567,25 +632,92 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-sub">
-        A few things I've worked on or I'm still improving.
+    <!-- CYBER / LEARNING -->
+    <section>
+      <h2 class="section-title lang-en">Cybersecurity & Learning</h2>
+      <h2 class="section-title lang-fr">Cybersécurité & apprentissage</h2>
+      <p class="section-sub lang-en">
+        I’m building my foundations step by step.
+      </p>
+      <p class="section-sub lang-fr">
+        Je construis mes bases petit à petit.
       </p>
 
-      <div class="projects">
+      <div class="card-grid-2">
         <div class="card">
-          <div class="project-title">
-            Real Estate Agency Management System
-          </div>
-          <p>
-            Team project built with <strong>Odoo ERP</strong>, HubSpot and AppliCO
-            for managing real estate listings, clients and workflows.
+          <h3 class="lang-en">Tools & platforms</h3>
+          <h3 class="lang-fr">Outils & plateformes</h3>
+          <p class="lang-en">
+            I work mainly on <strong>Kali Linux</strong> and <strong>Ubuntu</strong>, explore
+            labs on <strong>TryHackMe</strong> and follow courses from
+            <strong>Cisco Networking Academy</strong>.
           </p>
-          <p>
-            I worked on module customization, database setup and automation
-            logic.
+          <p class="lang-fr-block">
+            Je travaille surtout sous <strong>Kali Linux</strong> et <strong>Ubuntu</strong>,
+            je pratique sur <strong>TryHackMe</strong> et je suis des formations via
+            <strong>Cisco Networking Academy</strong>.
+          </p>
+          <p class="small-muted lang-en">
+            Focus: network basics, Linux, security concepts and ethical hacking introduction.
+          </p>
+          <p class="small-muted lang-fr-block">
+            Axes principaux : bases réseaux, Linux, notions de sécurité et
+            introduction à l’ethical hacking.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="lang-en">Content creation</h3>
+          <h3 class="lang-fr">Création de contenu</h3>
+          <p class="lang-en">
+            On the side, I run a TikTok account with <strong>30K+ followers</strong>,
+            mostly editing football and sports clips.
+          </p>
+          <p class="lang-fr-block">
+            À côté de mes études, je gère un compte TikTok avec
+            <strong>plus de 30K abonnés</strong>, principalement autour du montage
+            vidéo de football et de contenus sportifs.
+          </p>
+          <p class="lang-en">
+            It helps me stay consistent, learn storytelling and timing, and
+            gives me another way to express ideas.
+          </p>
+          <p class="lang-fr-block">
+            Ça m’aide à rester régulier, travailler le storytelling, le rythme,
+            et à exprimer mes idées différemment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title lang-en">Projects</h2>
+      <h2 class="section-title lang-fr">Projets</h2>
+      <p class="section-sub lang-en">
+        A few things I’ve worked on or I’m still improving.
+      </p>
+      <p class="section-sub lang-fr">
+        Quelques projets sur lesquels j’ai travaillé ou que je continue d’améliorer.
+      </p>
+
+      <div class="projects-grid">
+        <div class="card">
+          <div class="project-title"><strong>Real Estate Agency Management System</strong></div>
+          <p class="lang-en">
+            Team project built with <strong>Odoo ERP</strong>, HubSpot and AppliCO
+            for managing properties, clients and workflows for a real estate agency.
+          </p>
+          <p class="lang-fr-block">
+            Projet d’équipe réalisé avec <strong>Odoo ERP</strong>, HubSpot et AppliCO
+            pour gérer les biens, les clients et les flux de travail d’une agence immobilière.
+          </p>
+          <p class="lang-en">
+            I contributed to module customization, database setup and automation logic.
+          </p>
+          <p class="lang-fr-block">
+            J’ai travaillé sur la personnalisation des modules, la base de données
+            et la logique d’automatisation.
           </p>
           <div class="tag-row">
             <span class="tag">Odoo</span>
@@ -596,16 +728,22 @@
         </div>
 
         <div class="card">
-          <div class="project-title">
-            WhatsApp Real-Time Translation Extension
-          </div>
-          <p>
-            Cloudflare Worker + AI API that translates WhatsApp messages
-            from Algerian Arabic to French and English in real time.
+          <div class="project-title"><strong>WhatsApp Real-Time Translation Extension</strong></div>
+          <p class="lang-en">
+            Cloudflare Worker + AI API that translates WhatsApp messages from
+            Algerian Arabic to French and English, in near real time.
           </p>
-          <p>
-            Still improving the architecture and UX before publishing it
-            properly.
+          <p class="lang-fr-block">
+            Projet basé sur un Cloudflare Worker et une API d’IA pour traduire
+            des messages WhatsApp de l’arabe algérien vers le français et
+            l’anglais, quasiment en temps réel.
+          </p>
+          <p class="lang-en">
+            Still polishing the architecture and UX before publishing it fully.
+          </p>
+          <p class="lang-fr-block">
+            Je peaufine encore l’architecture et l’expérience utilisateur avant
+            de le publier complètement.
           </p>
           <div class="tag-row">
             <span class="tag">Cloudflare Workers</span>
@@ -616,96 +754,90 @@
         </div>
 
         <div class="card">
-          <div class="project-title">Cybersecurity Labs & Challenges</div>
-          <p>
-            Hands-on practice on <strong>TryHackMe</strong> and resources from
-            Cisco Networking Academy: Linux, networking basics and intro to
-            ethical hacking.
+          <div class="project-title"><strong>Cybersecurity labs & challenges</strong></div>
+          <p class="lang-en">
+            Ongoing practice on TryHackMe and labs from Cisco Networking Academy:
+            Linux, basic services, networking and security concepts.
+          </p>
+          <p class="lang-fr-block">
+            Pratique continue sur TryHackMe et des labs issus de Cisco Networking Academy :
+            Linux, services de base, réseaux et notions de sécurité.
           </p>
           <div class="tag-row">
             <span class="tag">TryHackMe</span>
-            <span class="tag">Kali</span>
+            <span class="tag">Kali Linux</span>
             <span class="tag">Networking</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTENT CREATION / TIKTOK -->
-    <section>
-      <h2 class="section-title">Content & Side Projects</h2>
-      <p class="section-sub">
-        I like tech, but I also enjoy editing and storytelling.
-      </p>
-      <div class="grid-2">
-        <div class="card">
-          <h3>TikTok · 30K+ followers</h3>
-          <p>
-            I run a TikTok account focused on football and sports edits.
-            It's where I experiment with timing, visuals and audience
-            growth.
-          </p>
-          <p>
-            It also helps me stay consistent: create, test, iterate.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Adobe Premiere Pro</span>
-            <span class="tag">Canva</span>
-            <span class="tag">Storytelling</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>What I'm looking for</h3>
-          <p>
-            Opportunities to learn more in cybersecurity, work on real
-            problems, and collaborate with people who enjoy building things
-            from scratch.
-          </p>
-          <p>
-            If you have a project, idea or advice, feel free to reach out.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- CONTACT -->
     <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-sub">
-        The easiest way to reach me is by email or LinkedIn.
+      <h2 class="section-title lang-en">Contact</h2>
+      <h2 class="section-title lang-fr">Contact</h2>
+      <p class="section-sub lang-en">
+        If you have a project, an opportunity or just advice, feel free to reach out.
       </p>
-      <div class="card contact-card">
-        <div class="contact-item">
-          <span>Email</span><br />
-          <a href="mailto:abdoulgafarouzoungrana6@gmail.com">
-            abdoulgafarouzoungrana6@gmail.com
-          </a>
-        </div>
-        <div class="contact-item">
-          <span>LinkedIn</span><br />
-          <a
-            href="https://www.linkedin.com/in/abdoul-gafarou-zoungrana-486280323"
-            target="_blank"
-            rel="noreferrer"
-            >View my LinkedIn profile</a
-          >
-        </div>
-        <div class="contact-item">
-          <span>GitHub</span><br />
-          <a
-            href="https://github.com/AbdoulGafarouZOUNGRANA"
-            target="_blank"
-            rel="noreferrer"
-            >github.com/AbdoulGafarouZOUNGRANA</a
-          >
+      <p class="section-sub lang-fr">
+        Si vous avez un projet, une opportunité ou simplement un conseil, vous pouvez me contacter.
+      </p>
+
+      <div class="card">
+        <div class="contact-list">
+          <div class="contact-item">
+            <span>Email</span><br />
+            <a href="mailto:abdoulgafarouzoungrana6@gmail.com">
+              abdoulgafarouzoungrana6@gmail.com
+            </a>
+          </div>
+          <div class="contact-item">
+            <span>LinkedIn</span><br />
+            <a
+              href="https://www.linkedin.com/in/abdoul-gafarou-zoungrana-486280323"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View my LinkedIn profile
+            </a>
+          </div>
+          <div class="contact-item">
+            <span>GitHub</span><br />
+            <a
+              href="https://github.com/AbdoulGafarouZOUNGRANA"
+              target="_blank"
+              rel="noreferrer"
+            >
+              github.com/AbdoulGafarouZOUNGRANA
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <footer>
-      Built with simple HTML & CSS · Hosted on GitHub Pages ·
+      Built with HTML &amp; CSS · Hosted on GitHub Pages ·
       <a href="#top">Back to top</a>
     </footer>
   </main>
+
+  <script>
+    const langButtons = document.querySelectorAll("[data-lang-btn]");
+    const body = document.body;
+
+    function setLang(lang) {
+      body.setAttribute("data-lang", lang);
+      langButtons.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.langBtn === lang);
+      });
+    }
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener("click", () => setLang(btn.dataset.langBtn));
+    });
+
+    // default language
+    setLang("en");
+  </script>
 </body>
 </html>
